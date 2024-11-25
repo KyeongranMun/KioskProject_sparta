@@ -9,9 +9,9 @@ import java.util.Scanner;
  * 메뉴 출력, 주문 관리, 사용자 입력 처리 등의 기능을 제공합니다.
  */
 public class Kiosk {
-    private List<MenuCategory> categories; //상위 메뉴 카테고리 categories 리스트
-    private Order order; // 주문 관리 객체
-    private Scanner sc; // 사용자 입력 처리
+    private final List<MenuCategory> categories; //상위 메뉴 카테고리 categories 리스트
+    private final Order order; // 주문 관리 객체
+    private final Scanner sc; // 사용자 입력 처리
 
     /**
      * Kiosk 객체 생성 및 초기화

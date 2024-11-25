@@ -8,7 +8,7 @@ import java.util.List;
  * 리스트에 주문 추가, 주문 취소, 주문한 내역을 조회하는 기능을 제공합니다.
  */
 public class Order {
-    private List<MenuItems> orderedItems; // 주문된 메뉴 항목 리스트
+    private final List<MenuItems> orderedItems; // 주문된 메뉴 항목 리스트
 
     /**
      * Order 객체 생성, orderedItems 리스트로 주문 항목 관리

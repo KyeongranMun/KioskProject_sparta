@@ -6,9 +6,9 @@ package kiosk.assignment;
  * 각 필드들을 조회할 수 있는 메서드를 제공합니다.
  */
 public class MenuItems {
-    private String name;
-    private double price;
-    private String information;
+    private final String name;
+    private final double price;
+    private final String information;
 
     /**
      *

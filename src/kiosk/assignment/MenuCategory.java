@@ -8,8 +8,8 @@ import java.util.List;
  * 버거, 사이드, 음료와 같은 상위 카테고리와 각 카테고리에 속하는 세부 메뉴 항목을 관리합니다.
  */
 public class MenuCategory {
-    private String categoryName; // 상위 카테고리 이름
-    private List<MenuItems> items; // 카테고리에 속한 메뉴 리스트
+    private final String categoryName; // 상위 카테고리 이름
+    private final List<MenuItems> items; // 카테고리에 속한 메뉴 리스트
 
     /**
      * MenuCategory 객체 생성
