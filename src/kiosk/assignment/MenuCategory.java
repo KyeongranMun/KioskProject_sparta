@@ -12,7 +12,7 @@ public class MenuCategory {
     private List<MenuItems> items; // 카테고리에 속한 메뉴 리스트
 
     /**
-     *
+     * MenuCategory 객체 생성
      * @param subCategory 상위 카테고리를 선택하면 나오는 하위 카테고리 (예 : "Burgers", "Side", "Drinks")
      */
     public MenuCategory(String subCategory) {
