@@ -5,6 +5,7 @@ package kiosk.assignment;
  */
 public class KioskApp {
     public static void main(String[] args) {
-
+        Kiosk kioskApp = new Kiosk();
+        kioskApp.start();
     }
 }

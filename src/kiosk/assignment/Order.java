@@ -45,7 +45,7 @@ public class Order {
         } else {
             System.out.println("주문 내역 : ");
             for (MenuItems orderHistory : orderedItems) {
-                System.out.println("- " + orderHistory.getName());
+                System.out.printf("- %s | W %.2f%n", orderHistory.getName(), orderHistory.getPrice());
             }
         }
     }

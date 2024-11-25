@@ -50,17 +50,20 @@ public class Kiosk {
         categories.add(drinks);
     }
 
+    /**
+     * 전체 메뉴를 출력하고 주문 항목을 선택합니다.
+     */
     private void showMenu() {
         System.out.println("[ 전체 메뉴 ]");
         int insertNum = 1;
         for (MenuCategory category : categories) {
             System.out.println(category.getCategoryName() + " 메뉴");
             for (MenuItems items : category.getItems()) {
-                System.out.printf("%d. %s | W %.2f\n", insertNum++, items.getName(), items.getPrice());
+                System.out.printf("%d. %s | W %.2f | %s%n", insertNum++, items.getName(), items.getPrice(), items.getInformation());
             }
         }
         System.out.println("이전 화면으로 되돌아가려면 0을 입력하세요.");
-        System.out.println("메뉴를 선택하세요.");
+        System.out.print("메뉴를 선택하세요 : ");
         int menuChoice = sc.nextInt();
 
         if (menuChoice == 0 ) {
@@ -79,6 +82,9 @@ public class Kiosk {
         System.out.println("잘못된 선택입니다. 다시 선택하세요.");
     }
 
+    /**
+     * 키오스크 프로그램의 메인 루프를 시작합니다.
+     */
     public void start() {
         while (true) {
             System.out.println("========== 1. 주문 | 2. 주문 취소 | 3. 주문 내역 | 0. 홈(종료)==========");
