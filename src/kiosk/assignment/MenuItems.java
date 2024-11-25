@@ -30,7 +30,7 @@ public class MenuItems {
     public String getName() {
         return name;
     }
-    public double getPrce() {
+    public double getPrice() {
         return price;
     }
     public String getInformation() {
