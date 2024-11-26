@@ -4,6 +4,12 @@
 ### 3. 기능 엿보기
 ### 4. 소셜 링크
 
+
+## 클래스 다이어그램
+
+![image](https://github.com/user-attachments/assets/64482948-9e75-4348-b009-7cc92bc88466)
+
+
    
 <br>
 
