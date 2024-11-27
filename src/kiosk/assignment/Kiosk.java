@@ -87,7 +87,6 @@ public class Kiosk {
             System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
         }
     }
-
     /**
      * 키오스크 프로그램의 메인 루프를 시작합니다.
      */
