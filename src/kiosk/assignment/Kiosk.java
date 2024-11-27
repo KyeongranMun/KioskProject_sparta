@@ -1,6 +1,7 @@
 package kiosk.assignment;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -54,32 +55,37 @@ public class Kiosk {
      * 전체 메뉴를 출력하고 주문 항목을 선택합니다.
      */
     private void showMenu() {
-        System.out.println("[ 전체 메뉴 ]");
-        int insertNum = 1;
-        for (MenuCategory category : categories) {
-            System.out.println(category.getCategoryName() + " 메뉴");
-            for (MenuItems items : category.getItems()) {
-                System.out.printf("%d. %s | W %.2f | %s%n", insertNum++, items.getName(), items.getPrice(), items.getInformation());
-            }
-        }
-        System.out.println("이전 화면으로 되돌아가려면 0을 입력하세요.");
-        System.out.print("메뉴를 선택하세요 : ");
-        int menuChoice = sc.nextInt();
-
-        if (menuChoice == 0 ) {
-            System.out.println("이전 화면으로 돌아갑니다.");
-            return;
-        }
-        insertNum = 1;
-        for (MenuCategory category : categories) {
-            for (MenuItems items : category.getItems()) {
-                if (menuChoice == insertNum++) {
-                    order.addItem(items);
-                    return;
+        try {
+            System.out.println("[ 전체 메뉴 ]");
+            int insertNum = 1;
+            for (MenuCategory category : categories) {
+                System.out.println(category.getCategoryName() + " 메뉴");
+                for (MenuItems items : category.getItems()) {
+                    System.out.printf("%d. %s | W %.2f | %s%n", insertNum++, items.getName(), items.getPrice(), items.getInformation());
                 }
             }
+            System.out.println("이전 화면으로 되돌아가려면 0을 입력하세요.");
+            System.out.print("메뉴를 선택하세요 : ");
+            int menuChoice = sc.nextInt();
+
+            if (menuChoice == 0) {
+                System.out.println("이전 화면으로 돌아갑니다.");
+                return;
+            }
+            insertNum = 1;
+            for (MenuCategory category : categories) {
+                for (MenuItems items : category.getItems()) {
+                    if (menuChoice == insertNum++) {
+                        order.addItem(items);
+                        return;
+                    }
+                }
+            }
+            System.out.println("잘못된 선택입니다. 다시 선택하세요.");
+        } catch (Exception wrongInput) {
+            sc.nextLine();
+            System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
         }
-        System.out.println("잘못된 선택입니다. 다시 선택하세요.");
     }
 
     /**
@@ -87,19 +93,24 @@ public class Kiosk {
      */
     public void start() {
         while (true) {
-            System.out.println("========== 1. 주문 | 2. 주문 취소 | 3. 주문 내역 | 0. 홈(종료)==========");
-            System.out.println("번호를 입력하세요 : ");
-            int choice = sc.nextInt();
+            try {
+                System.out.println("========== 1. 주문 | 2. 주문 취소 | 3. 주문 내역 | 0. 홈(종료)==========");
+                System.out.println("번호를 입력하세요 : ");
+                int choice = sc.nextInt();
 
-            switch (choice) {
-                case 1 -> showMenu();
-                case 2 -> order.clearOrder();
-                case 3 -> order.showOrder();
-                case 0 -> {
-                    System.out.println("프로그램을 종료합니다.");
-                    return;
+                switch (choice) {
+                    case 1 -> showMenu();
+                    case 2 -> order.clearOrder();
+                    case 3 -> order.showOrder();
+                    case 0 -> {
+                        System.out.println("프로그램을 종료합니다.");
+                        return;
+                    }
+                    default -> System.out.println("잘못된 입력입니다. 다시 선택하세요.");
                 }
-                default -> System.out.println("잘못된 입력입니다. 다시 선택하세요.");
+            } catch (InputMismatchException wrongInput) {
+                sc.nextLine();
+                System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
             }
         }
     }
